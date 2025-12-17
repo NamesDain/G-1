@@ -1,120 +1,145 @@
+/* Apple-Themed Seat Selection */
+:root {
+    --primary-black: #1d1d1f;
+    --secondary-gray: #86868b;
+    --light-gray: #f5f5f7;
+    --white: #ffffff;
+    --accent-blue: #0071e3;
+    --success-green: #30d158;
+    --error-red: #ff3b30;
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
 
 * {
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    background-color: #333;
+    background-color: var(--light-gray);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    padding: 20px;
     counter-reset: seat-counter;
 }
 
 .card {
-    background-color: white;
-    width: 350px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    background-color: var(--white);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-md);
     overflow: hidden;
-    border: 1px solid #ddd;
 }
 
 .header {
-    background-color: #37474f;
-    color: white;
-    padding: 15px;
+    background-color: var(--primary-black);
+    color: var(--white);
+    padding: 20px;
     text-align: center;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 18px;
+    letter-spacing: -0.3px;
 }
 
+/* Legend */
 .legend {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    padding: 15px 10px;
-    font-size: 0.8rem;
-    color: #555;
+    gap: 20px;
+    padding: 20px;
+    font-size: 13px;
+    color: var(--secondary-gray);
+    background: var(--light-gray);
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 5px;}
+    gap: 6px;
+}
 
 .box {
-    width: 15px;
-    height: 15px;
-    border-radius: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
 }
 
 .box.available { 
-    background-color: #ccc; 
-}
-.box.booked { 
-    background-color: #d9534f; 
-}
-.box.selected { 
-    background-color: #37474f; 
+    background-color: var(--light-gray);
+    border: 2px solid var(--border-color);
 }
 
+.box.booked { 
+    background-color: var(--error-red);
+}
+
+.box.selected { 
+    background-color: var(--accent-blue);
+}
+
+/* Screen */
 .screen-container {
     text-align: center;
-    margin-bottom: 20px;
-    padding: 0 20px;
+    margin: 30px 20px 20px;
 }
 
 .screen {
-    height: 4px;
-    background-color: #333;
+    height: 6px;
+    background: linear-gradient(to bottom, var(--primary-black), var(--secondary-gray));
     width: 100%;
-    border-radius: 2px;
-    margin-bottom: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .screen-text {
-    font-size: 0.7rem;
-    color: #777;
+    font-size: 11px;
+    color: var(--secondary-gray);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
+    font-weight: 500;
 }
 
+/* Seats Grid */
 .seats-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); 
-    gap: 10px;
-    padding: 0 20px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    padding: 20px;
     margin-bottom: 20px;
     justify-items: center;
 }
-    
+
 .seat-checkbox {
     display: none;
 }
 
 .seat-label {
     display: block;
-    width: 30px;
-    height: 25px;
-    background-color: #ccc;
-    border-radius: 4px 4px 8px 8px; 
+    width: 36px;
+    height: 32px;
+    background-color: var(--light-gray);
+    border: 2px solid var(--border-color);
+    border-radius: 6px 6px 10px 10px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
 .seat-label:hover {
-    background-color: #bbb;
+    transform: scale(1.1);
+    border-color: var(--accent-blue);
 }
 
 .seat-checkbox:checked + .seat-label {
-    background-color: #37474f;
-    box-shadow: 0 0 5px rgba(43, 123, 198, 0.5);
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
 }
 
 .seat-checkbox:checked {
@@ -122,63 +147,73 @@ body {
 }
 
 .seat-checkbox:disabled + .seat-label {
-    background-color: #d9534f; 
+    background-color: var(--error-red);
+    border-color: var(--error-red);
     cursor: not-allowed;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
+.seat-checkbox:disabled + .seat-label:hover {
+    transform: none;
+}
+
+/* Summary */
 .summary {
     text-align: center;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-    color: #444;
+    margin-bottom: 20px;
+    padding: 16px 20px;
+    background: var(--light-gray);
+    font-size: 15px;
+    color: var(--primary-black);
+    font-weight: 500;
 }
 
 .count-number::after {
     content: counter(seat-counter);
-    font-weight: bold;
-    color: #263238;
+    font-weight: 600;
+    color: var(--accent-blue);
 }
 
+/* Actions */
 .actions {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 0 20px 20px 20px;
+    gap: 12px;
+    padding: 0 20px 20px;
 }
 
 .actions a {
     text-decoration: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 200px;
-    color: white;
+    color: inherit;
+    display: block;
 }
 
 .btn {
     border: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-size: 1rem;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
     cursor: pointer;
     width: 100%;
-    font-weight: 600;
+    font-weight: 500;
+    transition: all 0.2s;
 }
 
 .btn-confirm {
-    background-color: #37474f;
-    color: white;
+    background-color: var(--accent-blue);
+    color: var(--white);
 }
 
 .btn-confirm:hover { 
-    background-color: #263238; 
-
+    background-color: #0077ed;
+    transform: translateY(-2px);
 }
 
 .btn-back {
-    background-color: #555;
-    color: white;
+    background-color: var(--secondary-gray);
+    color: var(--white);
 }
 
 .btn-back:hover { 
-    background-color: #333; 
+    background-color: #6e6e73;
 }
