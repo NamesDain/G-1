@@ -3,39 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../liquid-glass.css">
     <link rel="stylesheet" href="s6.style.css">
-    <title>Page 6: Confirmation Page</title>
-    </head>
+    <title>Booking Confirmed - CinePlex</title>
+</head>
 <body>
-
-    <div class="screen">
-        <div class="screen-header">Confirmation Page</div>
-        <div class="screen-body">
-            
-            <div style="color: var(--success-green); margin-bottom: 10px;">
-                <h2 style="margin-bottom: 5px;">Booking Complete!</h2>
-                <p style="font-size: 14px;">Please show your QR Code at the entry.</p>
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">CinePlex</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="ahome.index.html" class="active">Movies</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
             </div>
+        </div>
+    </nav>
 
-            <div class="ticket">
-                <h3 style="color: var(--primary-blue);">Booking ID: #XYZ7890</h3>
-                <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
-                
-                <div class="ticket-details">
-                    <p><strong>Movie:</strong> Movie Title Here</p>
-                    <p><strong>Showtime:</strong> 10:00 PM</p>
-                    <p><strong>Seats:</strong> B3, B4</p>
-                    <p><strong>Ticket Details:</strong> Full Price</p>
+    <div class="confirmation-container">
+        <div class="screen-card">
+            <div class="screen-header success">Booking Confirmed</div>
+            <div class="screen-body">
+                <div class="success-message">
+                    <div class="success-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <h2>You're all set!</h2>
+                    <p>Please show your QR code at the entry</p>
                 </div>
-                
-                <div class="qr-placeholder">QR CODE</div>
-                <p style="font-size: 10px; color: #777;">Scan this code for entry.</p>
-            </div>
 
-            <div class="actions">
-                <button class="btn btn-back"><a href="a1main.index.html">Back to home</a></button>
+                <div class="ticket glass-panel">
+                    <div class="ticket-header">
+                        <span class="booking-id">Booking #XYZ7890</span>
+                    </div>
+                    
+                    <div class="ticket-divider"></div>
+                    
+                    <div class="ticket-details">
+                        <div class="detail-row">
+                            <span class="label">Movie</span>
+                            <span class="value">Iron Man</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Showtime</span>
+                            <span class="value">10:00 PM</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Seats</span>
+                            <span class="value">B3, B4</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Ticket Type</span>
+                            <span class="value">Full Price</span>
+                        </div>
+                    </div>
+
+                    <div class="qr-section">
+                        <div class="qr-code">
+                            <svg width="100" height="100" viewBox="0 0 100 100">
+                                <rect width="100" height="100" fill="#1C1C1E"/>
+                                <rect x="10" y="10" width="25" height="25" fill="white"/>
+                                <rect x="65" y="10" width="25" height="25" fill="white"/>
+                                <rect x="10" y="65" width="25" height="25" fill="white"/>
+                                <rect x="15" y="15" width="15" height="15" fill="#1C1C1E"/>
+                                <rect x="70" y="15" width="15" height="15" fill="#1C1C1E"/>
+                                <rect x="15" y="70" width="15" height="15" fill="#1C1C1E"/>
+                                <rect x="18" y="18" width="9" height="9" fill="white"/>
+                                <rect x="73" y="18" width="9" height="9" fill="white"/>
+                                <rect x="18" y="73" width="9" height="9" fill="white"/>
+                                <rect x="40" y="10" width="5" height="5" fill="white"/>
+                                <rect x="50" y="10" width="5" height="5" fill="white"/>
+                                <rect x="40" y="20" width="5" height="5" fill="white"/>
+                                <rect x="45" y="25" width="5" height="5" fill="white"/>
+                                <rect x="40" y="40" width="20" height="20" fill="white"/>
+                                <rect x="45" y="45" width="10" height="10" fill="#1C1C1E"/>
+                                <rect x="10" y="45" width="5" height="5" fill="white"/>
+                                <rect x="20" y="50" width="5" height="5" fill="white"/>
+                                <rect x="70" y="45" width="5" height="5" fill="white"/>
+                                <rect x="80" y="50" width="5" height="5" fill="white"/>
+                                <rect x="45" y="70" width="5" height="5" fill="white"/>
+                                <rect x="55" y="75" width="5" height="5" fill="white"/>
+                                <rect x="70" y="70" width="5" height="5" fill="white"/>
+                                <rect x="80" y="80" width="10" height="10" fill="white"/>
+                            </svg>
+                        </div>
+                        <p class="qr-hint">Scan this code for entry</p>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <a href="../index.html" class="btn-glass btn-primary btn-full">Back to Home</a>
+                    <a href="ahome.index.html" class="btn-glass btn-secondary btn-full">Browse More Movies</a>
+                </div>
             </div>
         </div>
     </div>
-    </body>
+</body>
 </html>

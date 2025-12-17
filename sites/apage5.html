@@ -3,36 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../liquid-glass.css">
     <link rel="stylesheet" href="s5.style.css">
-    <title>Page 5: Payment Page (Optional)</title>
-    </head>
+    <title>Payment - CinePlex</title>
+</head>
 <body>
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">CinePlex</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="ahome.index.html" class="active">Movies</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-    <div class="screen">
-        <div class="screen-header">Payment Page</div>
-        <div class="screen-body">
-            <form>
-                <div class="form-group">
-                    <label>Card Number</label>
-                    <input type="text" placeholder="XXXX XXXX XXXX XXXX">
+    <div class="payment-container">
+        <div class="screen-card">
+            <div class="screen-header">Payment</div>
+            <div class="screen-body">
+                <div class="progress-indicator">
+                    <div class="step completed">1</div>
+                    <div class="step-line completed"></div>
+                    <div class="step completed">2</div>
+                    <div class="step-line completed"></div>
+                    <div class="step completed">3</div>
+                    <div class="step-line"></div>
+                    <div class="step active">4</div>
                 </div>
-                
-                <div style="display: flex; gap: 10px;">
-                    <div style="flex: 2;">
-                        <label>Expiry Date</label>
-                        <input type="text" placeholder="MM/YY">
+
+                <div class="order-summary glass-panel">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Movie Ticket x2</span>
+                        <span>$24.00</span>
                     </div>
-                    <div style="flex: 1;">
-                        <label>CVV</label>
-                        <input type="text" placeholder="123">
+                    <div class="summary-row">
+                        <span>Service Fee</span>
+                        <span>$2.00</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span>$26.00</span>
                     </div>
                 </div>
-                <div class="actions">
-                    <button class="btn btn-confirm"><a href="apage6.html">Confirm Selection</a></button>
-                    <button class="btn btn-back"><a href="apage4.html">Previous Page</a></button>
-                </div>
-        </form>
+
+                <form>
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" class="glass-input" placeholder="1234 5678 9012 3456" maxlength="19">
+                    </div>
+                    
+                    <div class="card-details">
+                        <div class="form-group">
+                            <label>Expiry Date</label>
+                            <input type="text" class="glass-input" placeholder="MM/YY" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" class="glass-input" placeholder="123" maxlength="4">
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <a href="apage6.html" class="btn-glass btn-primary btn-full">Complete Payment</a>
+                        <a href="apage4.html" class="btn-glass btn-secondary btn-full">Back</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    </body>
+</body>
 </html>

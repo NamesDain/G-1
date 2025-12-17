@@ -3,80 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../liquid-glass.css">
     <link rel="stylesheet" href="s.style.css">
     <title>Browse Movies - CinePlex</title>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="glass-nav">
         <div class="nav-container">
             <a href="../index.html" class="logo">CinePlex</a>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
                 <a href="ahome.index.html" class="active">Movies</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
             </div>
         </div>
     </nav>
 
     <div class="page-container">
-        <div class="page-header">
+        <div class="section-header">
             <h1>Now Showing</h1>
             <p>Select a movie to view showtimes and book tickets</p>
         </div>
 
         <div class="movie-grid">
-            <div class="movie-card" onclick="window.location.href='apage2.html'">
+            <div class="movie-card glass-card" onclick="window.location.href='apage2.html'">
                 <div class="poster">
                     <img src="zpic6movie.jpg" alt="Iron Man">
                 </div>
                 <div class="movie-info">
                     <h3>Iron Man</h3>
                     <div class="movie-meta">
-                        <span class="rating">⭐ 8.8</span>
-                        <span class="genre">Action</span>
+                        <span class="rating">8.8</span>
+                        <span class="glass-chip">Action</span>
                     </div>
                 </div>
             </div>
 
-            <div class="movie-card" onclick="window.location.href='dmovie.html'">
+            <div class="movie-card glass-card" onclick="window.location.href='dmovie.html'">
                 <div class="poster">
                     <img src="zpicgundam.jpg" alt="Gundam">
                 </div>
                 <div class="movie-info">
                     <h3>Gundam: Requiem for Vengeance</h3>
                     <div class="movie-meta">
-                        <span class="rating">⭐ 8.5</span>
-                        <span class="genre">Sci-Fi</span>
+                        <span class="rating">8.5</span>
+                        <span class="glass-chip">Sci-Fi</span>
                     </div>
                 </div>
             </div>
 
-            <div class="movie-card" onclick="window.location.href='edmovie.html'">
+            <div class="movie-card glass-card" onclick="window.location.href='edmovie.html'">
                 <div class="poster">
                     <img src="zpicstellar.jpg" alt="Interstellar">
                 </div>
                 <div class="movie-info">
                     <h3>Interstellar</h3>
                     <div class="movie-meta">
-                        <span class="rating">⭐ 8.7</span>
-                        <span class="genre">Sci-Fi</span>
+                        <span class="rating">8.7</span>
+                        <span class="glass-chip">Sci-Fi</span>
                     </div>
                 </div>
             </div>
 
-            <div class="movie-card" onclick="window.location.href='fdmovie.html'">
+            <div class="movie-card glass-card" onclick="window.location.href='fdmovie.html'">
                 <div class="poster">
                     <img src="zpic5movie.jpg" alt="Shrek">
                 </div>
                 <div class="movie-info">
                     <h3>Shrek</h3>
                     <div class="movie-meta">
-                        <span class="rating">⭐ 7.9</span>
-                        <span class="genre">Animation</span>
+                        <span class="rating">7.9</span>
+                        <span class="glass-chip">Animation</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>2024 CinePlex. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

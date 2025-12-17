@@ -3,37 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../liquid-glass.css">
     <link rel="stylesheet" href="s4.style.css">
-    <title>Page 4: Booking Form Page</title>
-    </head>
+    <title>Booking Details - CinePlex</title>
+</head>
 <body>
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">CinePlex</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="ahome.index.html" class="active">Movies</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-    <div class="screen">
-        <div class="screen-header">Booking Form</div>
-        <div class="screen-body">
-            <form>
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="Enter your full name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="email@example.com" required>
-                </div>
-                
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" placeholder="+123 456 7890" required>
+    <div class="booking-container">
+        <div class="screen-card">
+            <div class="screen-header">Your Details</div>
+            <div class="screen-body">
+                <div class="progress-indicator">
+                    <div class="step completed">1</div>
+                    <div class="step-line completed"></div>
+                    <div class="step completed">2</div>
+                    <div class="step-line"></div>
+                    <div class="step active">3</div>
+                    <div class="step-line"></div>
+                    <div class="step">4</div>
                 </div>
 
-                <div class="actions">
-                    <button class="btn btn-confirm"><a href="apage5.html">Confirm Selection</a></button>
-                    <button class="btn btn-back"><a href="apage2.html">Previous Page</a></button>
-                </div>
-            
-        </form>
+                <form>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" class="glass-input" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="glass-input" placeholder="email@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" class="glass-input" placeholder="+63 912 345 6789" required>
+                    </div>
+
+                    <div class="actions">
+                        <a href="apage5.html" class="btn-glass btn-primary btn-full">Continue to Payment</a>
+                        <a href="apage3.html" class="btn-glass btn-secondary btn-full">Back to Seats</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    </body>
+</body>
 </html>

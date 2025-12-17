@@ -1,182 +1,93 @@
-/* Apple-Themed Browse Movies Page */
-:root {
-    --primary-black: #1d1d1f;
-    --secondary-gray: #86868b;
-    --light-gray: #f5f5f7;
-    --white: #ffffff;
-    --accent-blue: #0071e3;
-    --border-color: #d2d2d7;
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    background-color: var(--white);
-    color: var(--primary-black);
-    -webkit-font-smoothing: antialiased;
-}
-
-/* Navigation */
-.navbar {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: saturate(180%) blur(20px);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--primary-black);
-    text-decoration: none;
-    letter-spacing: -0.5px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 32px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--primary-black);
-    font-size: 14px;
-    font-weight: 400;
-    transition: opacity 0.2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    opacity: 0.7;
-}
-
-/* Page Container */
-.page-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 24px 60px;
-}
-
-.page-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.page-header h1 {
-    font-size: clamp(36px, 6vw, 56px);
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    margin-bottom: 12px;
-}
-
-.page-header p {
-    font-size: 18px;
-    color: var(--secondary-gray);
-}
-
-/* Movie Grid */
 .movie-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
 }
 
 .movie-card {
-    background: var(--white);
-    border-radius: 18px;
-    overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
 }
 
 .movie-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-8px) scale(1.02);
 }
 
 .poster {
     width: 100%;
     aspect-ratio: 2/3;
     overflow: hidden;
-    background: var(--light-gray);
+    position: relative;
+}
+
+.poster::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.3), transparent 50%);
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.movie-card:hover .poster::after {
+    opacity: 1;
 }
 
 .poster img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s;
+    transition: var(--transition-slow);
 }
 
 .movie-card:hover .poster img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .movie-info {
-    padding: 16px;
+    padding: 20px;
 }
 
 .movie-info h3 {
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     letter-spacing: -0.3px;
-    color: var(--primary-black);
+    color: var(--text-primary);
+    line-height: 1.3;
 }
 
 .movie-meta {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 14px;
 }
 
 .rating {
-    color: var(--primary-black);
-    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    color: var(--accent-orange);
+    font-size: 15px;
 }
 
-.genre {
-    color: var(--secondary-gray);
-    padding: 4px 10px;
-    background: var(--light-gray);
-    border-radius: 12px;
-    font-size: 12px;
+.rating::before {
+    content: '';
+    font-size: 14px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .movie-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 16px;
     }
     
-    .page-container {
-        padding: 80px 16px 40px;
+    .movie-info {
+        padding: 16px;
     }
     
-    .page-header {
-        margin-bottom: 40px;
+    .movie-info h3 {
+        font-size: 15px;
     }
 }
