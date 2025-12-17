@@ -3,69 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="liquid-glass.css">
     <link rel="stylesheet" href="style.css">
     <title>CinePlex - Premium Movie Experience</title>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="glass-nav">
         <div class="nav-container">
-            <div class="logo">CinePlex</div>
+            <a href="index.html" class="logo">CinePlex</a>
             <div class="nav-links">
                 <a href="index.html" class="active">Home</a>
                 <a href="sites/ahome.index.html">Movies</a>
-                <a href="#about">About</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-bg"></div>
         <div class="hero-content">
             <h1 class="hero-title">Experience Cinema<br>Like Never Before</h1>
             <p class="hero-subtitle">Book your favorite movies with just a few taps.<br>Premium seats. Seamless booking. Unforgettable moments.</p>
-            <a href="sites/ahome.index.html" class="btn-primary">Browse Movies</a>
+            <a href="sites/ahome.index.html" class="btn-glass btn-primary">Browse Movies</a>
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features">
         <div class="features-container">
-            <div class="feature-card">
-                <div class="feature-icon">🎬</div>
+            <div class="feature-card glass-card">
+                <div class="feature-icon">
+                    <span class="icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                            <line x1="7" y1="2" x2="7" y2="22"/>
+                            <line x1="17" y1="2" x2="17" y2="22"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <line x1="2" y1="7" x2="7" y2="7"/>
+                            <line x1="2" y1="17" x2="7" y2="17"/>
+                            <line x1="17" y1="17" x2="22" y2="17"/>
+                            <line x1="17" y1="7" x2="22" y2="7"/>
+                        </svg>
+                    </span>
+                </div>
                 <h3>Wide Selection</h3>
                 <p>Choose from the latest blockbusters and timeless classics</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🪑</div>
+            <div class="feature-card glass-card">
+                <div class="feature-icon">
+                    <span class="icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </span>
+                </div>
                 <h3>Pick Your Seat</h3>
                 <p>Select your preferred seats with our interactive seating map</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">💳</div>
+            <div class="feature-card glass-card">
+                <div class="feature-icon">
+                    <span class="icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                    </span>
+                </div>
                 <h3>Easy Payment</h3>
                 <p>Multiple payment options including card and QR payments</p>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
-        <div class="cta-content">
+        <div class="cta-card glass-panel-solid">
             <h2>Ready to watch?</h2>
             <p>Start browsing movies and book your tickets in minutes</p>
-            <a href="sites/ahome.index.html" class="btn-secondary">Get Started</a>
+            <a href="sites/ahome.index.html" class="btn-glass btn-primary">Get Started</a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 CinePlex. All rights reserved.</p>
+            <p>2024 CinePlex. All rights reserved.</p>
             <div class="footer-links">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Contact</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
             </div>
         </div>
     </footer>
