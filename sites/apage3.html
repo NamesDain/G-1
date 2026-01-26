@@ -128,16 +128,65 @@
                 </div>
 
                 <div class="summary glass-panel">
-                    <span>Seats selected:</span>
-                    <span class="count-number"></span>
+                    <div class="summary-item">
+                        <span>Movie Ticket x <span class="count-number">0</span></span>
+                        <span class="item-price">₱0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Service Fee</span>
+                        <span class="service-fee">₱50</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total Price:</span>
+                        <span class="total-price">₱0</span>
+                    </div>
                 </div>
 
                 <div class="actions">
-                    <a href="apage4.html" class="btn-glass btn-primary btn-full">Continue to Booking</a>
+                    <button id="continueBtn" class="btn-glass btn-primary btn-full">Continue to Booking</button>
                     <a href="ahome.index.html" class="btn-glass btn-secondary btn-full">Back to Movies</a>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        const seatCheckboxes = document.querySelectorAll('.seat-checkbox');
+        const countNumber = document.querySelector('.count-number');
+        const itemPriceDisp = document.querySelector('.item-price');
+        const totalPriceDisp = document.querySelector('.total-price');
+        const continueBtn = document.getElementById('continueBtn');
+        
+        const moviePrice = parseInt(sessionStorage.getItem('currentMoviePrice') || '300');
+        const serviceFee = 50;
+
+        function updateSummary() {
+            const selectedSeats = Array.from(seatCheckboxes).filter(cb => cb.checked).length;
+            countNumber.textContent = selectedSeats;
+            
+            const ticketsPrice = selectedSeats * moviePrice;
+            itemPriceDisp.textContent = `₱${ticketsPrice}`;
+            
+            const total = selectedSeats > 0 ? (ticketsPrice + serviceFee) : 0;
+            totalPriceDisp.textContent = `₱${total}`;
+            
+            sessionStorage.setItem('selectedSeatsCount', selectedSeats);
+            sessionStorage.setItem('totalPrice', total);
+        }
+
+        seatCheckboxes.forEach(cb => {
+            cb.addEventListener('change', updateSummary);
+        });
+
+        continueBtn.addEventListener('click', () => {
+            const selectedSeats = Array.from(seatCheckboxes).filter(cb => cb.checked).length;
+            if (selectedSeats === 0) {
+                alert('Please select at least 1 seat');
+            } else {
+                window.location.href = 'apage4.html';
+            }
+        });
+
+        updateSummary();
+    </script>
 </body>
 </html>

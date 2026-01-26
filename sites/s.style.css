@@ -4,6 +4,28 @@
     gap: 24px;
 }
 
+.poster {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 2/3;
+}
+
+.price-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .movie-card {
     cursor: pointer;
     transition: var(--transition-normal);

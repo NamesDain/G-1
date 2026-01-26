@@ -37,41 +37,72 @@
                 <div class="order-summary glass-panel">
                     <h3>Order Summary</h3>
                     <div class="summary-row">
-                        <span>Movie Ticket x2</span>
-                        <span>$24.00</span>
+                        <span>Movie Ticket x<span id="ticketCount">0</span></span>
+                        <span id="ticketPrice">₱0</span>
                     </div>
                     <div class="summary-row">
                         <span>Service Fee</span>
-                        <span>$2.00</span>
+                        <span>₱50</span>
                     </div>
                     <div class="summary-total">
                         <span>Total</span>
-                        <span>$26.00</span>
+                        <span id="totalDisplay">₱0</span>
                     </div>
                 </div>
 
-                <form>
+                <form id="paymentForm">
                     <div class="form-group">
                         <label>Card Number</label>
-                        <input type="text" class="glass-input" placeholder="1234 5678 9012 3456" maxlength="19">
+                        <input type="text" class="glass-input" placeholder="1234 5678 9012 3456" maxlength="19" required>
                     </div>
                     
                     <div class="card-details">
                         <div class="form-group">
                             <label>Expiry Date</label>
-                            <input type="text" class="glass-input" placeholder="MM/YY" maxlength="5">
+                            <input type="text" class="glass-input" placeholder="MM/YY" maxlength="5" required>
                         </div>
                         <div class="form-group">
                             <label>CVV</label>
-                            <input type="text" class="glass-input" placeholder="123" maxlength="4">
+                            <input type="text" class="glass-input" placeholder="123" maxlength="4" required>
                         </div>
                     </div>
 
                     <div class="actions">
-                        <a href="apage6.html" class="btn-glass btn-primary btn-full">Complete Payment</a>
+                        <button type="submit" class="btn-glass btn-primary btn-full">Complete Payment</button>
                         <a href="apage4.html" class="btn-glass btn-secondary btn-full">Back</a>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const seats = sessionStorage.getItem('selectedSeatsCount') || '0';
+            const total = sessionStorage.getItem('totalPrice') || '0';
+            const pricePerTicket = sessionStorage.getItem('currentMoviePrice') || '0';
+            
+            document.getElementById('ticketCount').textContent = seats;
+            document.getElementById('ticketPrice').textContent = `₱${parseInt(seats) * parseInt(pricePerTicket)}`;
+            document.getElementById('totalDisplay').textContent = `₱${total}`;
+
+            const paymentForm = document.getElementById('paymentForm');
+            paymentForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Play payment sound
+                const audio = new Audio('https://www.soundjay.com/buttons/sounds/button-3.mp3');
+                audio.play().catch(err => console.log('Audio play failed:', err));
+                
+                // Simulate processing
+                const btn = paymentForm.querySelector('button');
+                btn.textContent = 'Processing...';
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    window.location.href = 'apage6.html';
+                }, 1000);
+            });
+        });
+    </script>
             </div>
         </div>
     </div>

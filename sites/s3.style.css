@@ -141,14 +141,26 @@
 
 .summary {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 16px 24px;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 24px;
     font-size: 16px;
-    font-weight: 500;
-    color: var(--text-primary);
     margin-bottom: 24px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-secondary);
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 700;
+    color: var(--text-primary);
 }
 
 .count-number::after {
