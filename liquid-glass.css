@@ -216,10 +216,60 @@ body {
     outline: none;
 }
 
-.glass-panel {
+[data-theme="dark"] {
+    --text-primary: #FFFFFF;
+    --text-secondary: #0A84FF; /* Blue state color */
+    --text-gradient: linear-gradient(90deg, #0A84FF 0%, #FFD60A 100%);
+    --accent-blue: #0A84FF;
+    --accent-gold: #FFD60A;
+}
+
+.footer {
+    margin-top: auto;
     background: var(--glass-dark);
     backdrop-filter: var(--blur-medium);
-    border-radius: var(--radius-lg);
-    border: 0.5px solid rgba(255, 255, 255, 0.1);
-    padding: 24px;
+    -webkit-backdrop-filter: var(--blur-medium);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 24px;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-primary);
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--accent-blue);
+    opacity: 1;
+}
+
+h1, h2, .logo {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.nav-links a.active {
+    background: var(--accent-blue);
+    color: var(--text-white);
+    -webkit-text-fill-color: var(--text-white);
 }
