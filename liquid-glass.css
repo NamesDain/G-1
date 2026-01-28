@@ -24,6 +24,7 @@
     --blur-medium: blur(20px);
     --radius-lg: 24px;
     --radius-md: 16px;
+    --radius-full: 9999px;
     --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
     --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -313,6 +314,7 @@ body {
 .nav-links a.active {
     background: var(--accent-blue);
     color: #FFFFFF;
+    border-radius: var(--radius-full);
 }
 
 .btn-glass {
@@ -334,6 +336,7 @@ body {
 .btn-primary {
     background: var(--accent-blue);
     color: #FFFFFF;
+    border-radius: var(--radius-full);
 }
 
 .btn-secondary {
