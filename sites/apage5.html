@@ -97,7 +97,21 @@
                 </div>
 
                 <div id="cardSection" class="payment-section active">
-                    <form id="paymentForm">
+                    <div class="payment-methods-section">
+                    <h3>Select Payment Method</h3>
+                    <div class="payment-methods-grid">
+                        <div class="payment-method-card glass-panel" onclick="selectPayment('gcash')">
+                            <img src="gcash-qr.jpg" alt="GCash">
+                            <span>GCash</span>
+                        </div>
+                        <div class="payment-method-card glass-panel" onclick="selectPayment('paypal')">
+                            <img src="paypal-qr.jpg" alt="PayPal">
+                            <span>PayPal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="paymentForm">
                         <div class="form-group">
                             <label>Card Number</label>
                             <input type="text" class="glass-input" placeholder="1234 5678 9012 3456" required>
