@@ -42,17 +42,9 @@
 
 .features {
     padding: 80px 24px;
-    background: var(--bg-primary);
+    background: var(--bg-primary) !important;
     position: relative;
     z-index: 1;
-}
-
-.features::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--bg-primary);
-    z-index: -1;
 }
 
 .feature-card {
@@ -62,13 +54,14 @@
     backdrop-filter: var(--blur-medium);
     border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: var(--transition-normal);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .feature-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent-blue);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px) scale(1.02);
+    border-color: rgba(0, 122, 255, 0.5);
+    background: rgba(28, 28, 30, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .feature-icon {
