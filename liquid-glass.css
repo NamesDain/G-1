@@ -318,46 +318,72 @@ body {
 }
 
 .btn-glass {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
     padding: 14px 28px;
-    font-size: 16px;
-    font-weight: 600;
     border: none;
     border-radius: var(--radius-full);
     cursor: pointer;
-    text-decoration: none;
-    transition: var(--transition-normal);
-    position: relative;
     overflow: hidden;
+    background: var(--glass-tint);
+    backdrop-filter: var(--blur-medium);
+    -webkit-backdrop-filter: var(--blur-medium);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .btn-glass:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 122, 255, 0.25);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent);
+    transition: left 0.5s;
+}
+
+.btn-glass:hover::before {
+    left: 100%;
 }
 
 .btn-primary {
     background: var(--accent-blue);
     color: #FFFFFF;
-    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary:hover {
     background: #0081ff;
-    filter: brightness(1.1);
+    box-shadow: 0 0 20px rgba(0, 122, 255, 0.4);
+    transform: translateY(-5px) scale(1.02);
 }
 
 .btn-secondary {
     background: var(--glass-tint);
-    color: var(--text-primary);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .glass-card {
