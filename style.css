@@ -42,7 +42,7 @@
 
 .features {
     padding: 80px 24px;
-    background: var(--bg-primary) !important;
+    background: #0A0A0B !important;
     position: relative;
     z-index: 1;
 }
@@ -54,14 +54,15 @@
     backdrop-filter: var(--blur-medium);
     border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .feature-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    border-color: rgba(0, 122, 255, 0.5);
-    background: rgba(28, 28, 30, 0.8);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(0, 122, 255, 0.4);
+    background: rgba(28, 28, 30, 0.85);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
 }
 
 .feature-icon {

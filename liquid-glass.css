@@ -58,30 +58,6 @@
     --glass-dark: rgba(18, 18, 20, 0.85);
 }
 
-[data-theme="light"] {
-    --glass-white: rgba(255, 255, 255, 0.72);
-    --glass-white-solid: rgba(255, 255, 255, 0.85);
-    --glass-dark: rgba(255, 255, 255, 0.85);
-    --glass-tint: rgba(0, 0, 0, 0.05);
-    --glass-highlight: rgba(255, 255, 255, 0.5);
-    --glass-shadow: rgba(0, 0, 0, 0.05);
-    
-    --accent-blue: #007AFF;
-    --accent-blue-light: rgba(0, 122, 255, 0.12);
-    --accent-gold: #FF9500;
-    --accent-red: #FF3B30;
-    
-    --text-primary: #1C1C1E;
-    --text-secondary: #007AFF;
-    --text-tertiary: rgba(60, 60, 67, 0.3);
-    --text-white: #FFFFFF;
-    --text-gradient: linear-gradient(135deg, #007AFF 0%, #FF2D55 50%, #FF9500 100%);
-    
-    --bg-primary: #F2F2F7;
-    --bg-secondary: #FFFFFF;
-    --bg-gradient: linear-gradient(180deg, #FFFFFF 0%, #F2F2F7 100%);
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -94,7 +70,7 @@ html {
 
 body {
     font-family: var(--font-system);
-    background: var(--bg-gradient);
+    background: var(--bg-primary);
     background-attachment: fixed;
     color: var(--text-primary);
     line-height: 1.5;
@@ -264,7 +240,7 @@ body {
 
 .theme-toggle:hover {
     background: rgba(120, 120, 128, 0.2);
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .nav-container {
@@ -309,6 +285,7 @@ body {
 
 .nav-links a:hover {
     background: var(--glass-tint);
+    transform: translateY(-2px);
 }
 
 .nav-links a.active {
@@ -342,8 +319,8 @@ body {
 .btn-glass:hover {
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
-    transform: translateY(-3px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px) scale(1.03);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .btn-glass::before {
@@ -372,8 +349,9 @@ body {
 
 .btn-primary:hover {
     background: #0081ff;
-    box-shadow: 0 0 20px rgba(0, 122, 255, 0.4);
-    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px rgba(0, 122, 255, 0.5);
+    transform: translateY(-5px) scale(1.05);
+    filter: brightness(1.1);
 }
 
 .btn-secondary {
@@ -382,8 +360,9 @@ body {
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px) scale(1.02);
 }
 
 .glass-card {
@@ -393,7 +372,7 @@ body {
     box-shadow: var(--shadow-glass);
     border: 1px solid rgba(255, 255, 255, 0.05);
     overflow: hidden;
-    transition: var(--transition-normal);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .glass-input {
