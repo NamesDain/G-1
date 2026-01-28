@@ -6,6 +6,57 @@
     <link rel="stylesheet" href="../liquid-glass.css">
     <link rel="stylesheet" href="s5.style.css">
     <title>Payment - CinePlex</title>
+    <style>
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .method-btn {
+            background: var(--glass-tint);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-normal);
+            color: var(--text-primary);
+        }
+        .method-btn.active {
+            border-color: var(--accent-blue);
+            background: var(--accent-blue-light);
+        }
+        .method-btn img {
+            height: 24px;
+            object-fit: contain;
+        }
+        .payment-section {
+            display: none;
+        }
+        .payment-section.active {
+            display: block;
+        }
+        .qr-container {
+            text-align: center;
+            padding: 24px;
+            background: white;
+            border-radius: var(--radius-lg);
+            margin-top: 16px;
+        }
+        .qr-container img {
+            width: 200px;
+            height: 200px;
+        }
+        .qr-container p {
+            color: #1C1C1E;
+            margin-top: 12px;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
     <nav class="glass-nav">
@@ -16,6 +67,9 @@
                 <a href="ahome.index.html" class="active">Movies</a>
                 <a href="../about.html">About</a>
                 <a href="../contact.html">Contact</a>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
             </div>
         </div>
     </nav>
@@ -24,57 +78,66 @@
         <div class="screen-card">
             <div class="screen-header">Payment</div>
             <div class="screen-body">
-                <div class="progress-indicator">
-                    <div class="step completed">1</div>
-                    <div class="step-line completed"></div>
-                    <div class="step completed">2</div>
-                    <div class="step-line completed"></div>
-                    <div class="step completed">3</div>
-                    <div class="step-line"></div>
-                    <div class="step active">4</div>
-                </div>
-
-                <div class="order-summary glass-panel">
+                <div class="order-summary glass-panel" style="margin-bottom: 24px;">
                     <h3>Order Summary</h3>
                     <div class="summary-row">
-                        <span>Movie Ticket x<span id="ticketCount">0</span></span>
+                        <span>Tickets x<span id="ticketCount">0</span></span>
                         <span id="ticketPrice">₱0</span>
                     </div>
-                    <div class="summary-row">
-                        <span>Service Fee</span>
-                        <span>₱50</span>
-                    </div>
-                    <div class="summary-total">
+                    <div class="summary-total" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 12px; padding-top: 12px; display: flex; justify-content: space-between; font-weight: 700;">
                         <span>Total</span>
                         <span id="totalDisplay">₱0</span>
                     </div>
                 </div>
 
-                <form id="paymentForm">
-                    <div class="form-group">
-                        <label>Card Number</label>
-                        <input type="text" class="glass-input" placeholder="1234 5678 9012 3456" maxlength="19" required>
-                    </div>
-                    
-                    <div class="card-details">
-                        <div class="form-group">
-                            <label>Expiry Date</label>
-                            <input type="text" class="glass-input" placeholder="MM/YY" maxlength="5" required>
-                        </div>
-                        <div class="form-group">
-                            <label>CVV</label>
-                            <input type="text" class="glass-input" placeholder="123" maxlength="4" required>
-                        </div>
-                    </div>
+                <div class="payment-methods">
+                    <button class="method-btn active" data-method="card">Card</button>
+                    <button class="method-btn" data-method="gcash">GCash</button>
+                    <button class="method-btn" data-method="paypal">PayPal</button>
+                </div>
 
-                    <div class="actions">
-                        <button type="submit" class="btn-glass btn-primary btn-full">Complete Payment</button>
-                        <a href="apage4.html" class="btn-glass btn-secondary btn-full">Back</a>
+                <div id="cardSection" class="payment-section active">
+                    <form id="paymentForm">
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" class="glass-input" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        <div class="card-details" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                            <div class="form-group">
+                                <label>Expiry</label>
+                                <input type="text" class="glass-input" placeholder="MM/YY" required>
+                            </div>
+                            <div class="form-group">
+                                <label>CVV</label>
+                                <input type="text" class="glass-input" placeholder="123" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-glass btn-primary btn-full" style="margin-top: 24px;">Pay with Card</button>
+                    </form>
+                </div>
+
+                <div id="gcashSection" class="payment-section">
+                    <div class="qr-container">
+                        <img src="gcash-qr.jpg" alt="GCash QR">
+                        <p>Scan to Pay via GCash</p>
                     </div>
-                </form>
+                    <button id="gcashComplete" class="btn-glass btn-primary btn-full" style="margin-top: 24px;">I've Scanned and Paid</button>
+                </div>
+
+                <div id="paypalSection" class="payment-section">
+                    <div class="qr-container">
+                        <img src="paypal-qr.jpg" alt="PayPal QR">
+                        <p>Scan to Pay via PayPal</p>
+                    </div>
+                    <button id="paypalComplete" class="btn-glass btn-primary btn-full" style="margin-top: 24px;">I've Scanned and Paid</button>
+                </div>
+
+                <a href="apage4.html" class="btn-glass btn-secondary btn-full" style="margin-top: 12px;">Back</a>
             </div>
         </div>
     </div>
+
+    <script src="../script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const seats = sessionStorage.getItem('selectedSeatsCount') || '0';
@@ -85,26 +148,30 @@
             document.getElementById('ticketPrice').textContent = `₱${parseInt(seats) * parseInt(pricePerTicket)}`;
             document.getElementById('totalDisplay').textContent = `₱${total}`;
 
-            const paymentForm = document.getElementById('paymentForm');
-            paymentForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                // Play payment sound
-                const audio = new Audio('https://www.soundjay.com/buttons/sounds/button-3.mp3');
-                audio.play().catch(err => console.log('Audio play failed:', err));
-                
-                // Simulate processing
-                const btn = paymentForm.querySelector('button');
-                btn.textContent = 'Processing...';
-                btn.disabled = true;
-                
-                setTimeout(() => {
-                    window.location.href = 'apage6.html';
-                }, 1000);
+            const methodBtns = document.querySelectorAll('.method-btn');
+            const sections = document.querySelectorAll('.payment-section');
+
+            methodBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    methodBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const method = btn.dataset.method;
+                    sections.forEach(s => s.classList.remove('active'));
+                    document.getElementById(`${method}Section`).classList.add('active');
+                });
             });
+
+            const complete = () => {
+                const audio = new Audio('https://www.soundjay.com/buttons/sounds/button-3.mp3');
+                audio.play().catch(() => {});
+                setTimeout(() => window.location.href = 'apage6.html', 800);
+            };
+
+            document.getElementById('paymentForm').onsubmit = (e) => { e.preventDefault(); complete(); };
+            document.getElementById('gcashComplete').onclick = complete;
+            document.getElementById('paypalComplete').onclick = complete;
         });
     </script>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
