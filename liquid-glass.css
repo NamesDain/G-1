@@ -240,13 +240,22 @@ body {
     outline: none;
 }
 
-h1, h2 {
-    background: var(--text-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    display: inline-block;
+.hero-bg, .movie-detail-container, .features, .page-container {
+    transition: background var(--transition-normal);
+}
+
+[data-theme="light"] h1, 
+[data-theme="light"] h2, 
+[data-theme="light"] .logo {
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+    color: var(--text-primary);
+    background: none;
+}
+
+[data-theme="light"] .hero-title {
+    background: none;
+    -webkit-text-fill-color: var(--text-primary);
 }
 
 .footer {
