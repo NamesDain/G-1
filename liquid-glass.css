@@ -333,16 +333,31 @@ body {
     overflow: hidden;
 }
 
+.btn-glass:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 122, 255, 0.25);
+}
+
 .btn-primary {
     background: var(--accent-blue);
     color: #FFFFFF;
     border-radius: var(--radius-full);
 }
 
+.btn-primary:hover {
+    background: #0081ff;
+    filter: brightness(1.1);
+}
+
 .btn-secondary {
     background: var(--glass-tint);
     color: var(--text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .glass-card {

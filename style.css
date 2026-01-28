@@ -45,14 +45,6 @@
     background: var(--bg-primary);
 }
 
-.features-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-}
-
 .feature-card {
     text-align: center;
     padding: 40px 28px;
@@ -66,6 +58,7 @@
 .feature-card:hover {
     transform: translateY(-8px);
     border-color: var(--accent-blue);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .feature-icon {
