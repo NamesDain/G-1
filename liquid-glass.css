@@ -1,52 +1,48 @@
 :root {
-    --glass-white: rgba(255, 255, 255, 0.72);
-    --glass-white-solid: rgba(255, 255, 255, 0.85);
-    --glass-dark: rgba(18, 18, 20, 0.85);
-    --glass-tint: rgba(120, 120, 128, 0.12);
-    --glass-highlight: rgba(255, 255, 255, 0.5);
-    --glass-shadow: rgba(0, 0, 0, 0.3);
+    /* 60-30-10 Color Rule */
+    /* Primary (60%) - Neutral base */
+    --bg-primary: #0A0A0B;
+    --bg-secondary: #141417;
+    --bg-gradient: linear-gradient(180deg, #0A0A0B 0%, #141417 100%);
     
-    --accent-blue: #0A84FF;
-    --accent-blue-light: rgba(10, 132, 255, 0.15);
+    /* Secondary (30%) - UI elements and containers */
+    --glass-dark: rgba(28, 28, 30, 0.7);
+    --glass-tint: rgba(255, 255, 255, 0.05);
+    
+    /* Accent (10%) - Action colors and highlights */
+    --accent-blue: #007AFF;
+    --accent-blue-light: rgba(0, 122, 255, 0.15);
     --accent-gold: #FFD60A;
+    --accent-green: #34C759;
     --accent-red: #FF453A;
     
+    /* Typography */
     --text-primary: #FFFFFF;
-    --text-secondary: rgba(235, 235, 245, 0.6);
-    --text-tertiary: rgba(235, 235, 245, 0.3);
-    --text-white: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-tertiary: rgba(255, 255, 255, 0.3);
     
-    --bg-primary: #000000;
-    --bg-secondary: #1C1C1E;
-    --bg-gradient: linear-gradient(180deg, #000000 0%, #1C1C1E 100%);
+    --blur-medium: blur(20px);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
-    --blur-light: saturate(180%) blur(20px);
-    --blur-medium: saturate(200%) blur(30px);
-    --blur-heavy: saturate(250%) blur(40px);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] {
+    /* Primary (60%) */
+    --bg-primary: #F2F2F7;
+    --bg-secondary: #FFFFFF;
+    --bg-gradient: linear-gradient(180deg, #FFFFFF 0%, #F2F2F7 100%);
     
-    --radius-sm: 12px;
-    --radius-md: 20px;
-    --radius-lg: 28px;
-    --radius-xl: 40px;
-    --radius-full: 9999px;
+    /* Secondary (30%) */
+    --glass-dark: rgba(255, 255, 255, 0.8);
+    --glass-tint: rgba(0, 0, 0, 0.03);
     
-    --shadow-glass: 
-        0 0.5px 0 0 rgba(255, 255, 255, 0.1) inset,
-        0 -0.5px 0 0 rgba(0, 0, 0, 0.2) inset,
-        0 8px 32px rgba(0, 0, 0, 0.4);
-    --shadow-glass-hover:
-        0 0.5px 0 0 rgba(255, 255, 255, 0.15) inset,
-        0 8px 48px rgba(0, 0, 0, 0.5);
-    --shadow-elevated:
-        0 8px 32px rgba(0, 0, 0, 0.12),
-        0 2px 8px rgba(0, 0, 0, 0.08);
-    
-    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --spring: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    
-    --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    /* Typography */
+    --text-primary: #1C1C1E;
+    --text-secondary: rgba(60, 60, 67, 0.6);
+    --text-tertiary: rgba(60, 60, 67, 0.3);
 }
 
 [data-theme="dark"] {
@@ -246,8 +242,8 @@ body {
     background: var(--glass-dark);
     backdrop-filter: var(--blur-medium);
     -webkit-backdrop-filter: var(--blur-medium);
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.2);
 }
 
 .theme-toggle {
@@ -282,11 +278,7 @@ body {
 .logo {
     font-size: 24px;
     font-weight: 800;
-    background: var(--text-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+    color: var(--accent-blue);
     text-decoration: none;
     letter-spacing: -1px;
     transition: var(--transition-normal);
@@ -320,7 +312,7 @@ body {
 
 .nav-links a.active {
     background: var(--accent-blue);
-    color: var(--text-white);
+    color: #FFFFFF;
 }
 
 .btn-glass {
@@ -340,14 +332,14 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(180deg, #0A84FF 0%, #007AFF 100%);
-    color: var(--text-white);
+    background: var(--accent-blue);
+    color: #FFFFFF;
 }
 
 .btn-secondary {
     background: var(--glass-tint);
     color: var(--text-primary);
-    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .glass-card {
@@ -355,7 +347,7 @@ body {
     backdrop-filter: var(--blur-medium);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-glass);
-    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     overflow: hidden;
     transition: var(--transition-normal);
 }

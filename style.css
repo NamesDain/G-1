@@ -13,9 +13,7 @@
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent),
-        radial-gradient(ellipse 60% 60% at 80% 50%, rgba(255, 119, 198, 0.2), transparent),
-        radial-gradient(ellipse 60% 60% at 20% 80%, rgba(120, 200, 255, 0.2), transparent),
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 122, 255, 0.15), transparent),
         var(--bg-gradient);
     z-index: -1;
 }
@@ -31,10 +29,7 @@
     letter-spacing: -2px;
     line-height: 1.1;
     margin-bottom: 24px;
-    background: linear-gradient(135deg, #1C1C1E 0%, #3C3C3E 50%, #1C1C1E 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-primary);
 }
 
 .hero-subtitle {
@@ -47,7 +42,7 @@
 
 .features {
     padding: 80px 24px;
-    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.5) 100%);
+    background: var(--bg-secondary);
 }
 
 .features-container {
